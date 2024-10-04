@@ -49,5 +49,10 @@
                                         // a. assign  actual values to the variable 
                                                 // 1. num1 = 10
                                                 // 2. num2 = 5 
-                                // 4. After function completion new Sandbox in delete
-                                
+                                // 4. After function completion new Sandbox is deleted
+
+
+// CallStack 
+
+// 1. Global Exection
+ 
