@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create And Delete Element</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function addLanguage(LangName) {
+      const li = document.createElement("li");
+      li.innerHTML = `${LangName}`;
+      document.querySelector(".language").appendChild(li);
+    }
+    addLanguage("Java");
+
+    function addOptLang(langName) {
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptLang("C++");
+
+    // Edit
+    function editLang(langName) {
+      const li = document.querySelector("li:nth-child(2)");
+    //   console.log(li);
+      const newLi = document.createElement("li");
+      newLi.innerHTML = `${langName}`;
+      li.replaceWith(newLi);
+    }
+    editLang("C");
+    
+
+    function remove(){
+        const li = document.querySelector('li:nth-child(1)')
+        li.remove()
+    }
+    remove()
+  </script>
+</html>
