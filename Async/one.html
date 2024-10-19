@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async in JS </title>
+</head>
+<body>
+    <h1>Async Await</h1>
+    <h2>Abhi</h2>
+    <button id="stop">Stop</button>
+    <script>    
+        setTimeout(()=>{
+            console.log("Hello World");
+        },2000)
+        const fun =()=>{
+            console.log("Abhishek Kargeti");
+        }
+        setTimeout(fun,2000)
+
+
+        // document.querySelector('h1').innerHTML = "Abhishek kargeti"
+        setTimeout(()=>{
+            document.querySelector('h1').innerHTML = "Hello World"
+        },2000)
+
+
+        const changedText = setTimeout(()=>{
+            document.querySelector('h2').innerHTML = "Abhishek kargeti"
+        },2000)
+
+        // clearTimeout(changedText)
+        const btn = document.getElementById("stop")
+        btn.addEventListener('click',()=>{
+            clearTimeout(changedText)
+        })
+
+    </script>
+</body>
+</html>

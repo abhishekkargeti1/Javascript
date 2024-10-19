@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async AWait 2 </title>
+</head>
+<body>
+    <h1>Async Await</h1>
+    <h2>Abhi</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+        const startbtn = document.getElementById("start")
+        const stopbtn = document.getElementById("stop")
+        //  setInterval(()=>{
+        //     console.log("Hello World",  Date.now());
+        //  },1000)
+        
+        
+        // const fun = function(text){
+        //     console.log("Hello World ",text);
+        // }
+
+        // const a =setInterval(fun,2000,"hi")
+        // clearInterval(a)
+
+        let interval =""
+        startbtn.addEventListener('click',()=>{
+            interval = setInterval(()=>{
+                console.log("Hello World");
+            },1000)
+        })
+
+        stopbtn.addEventListener('click',()=>{
+            clearInterval(interval)
+        })
+
+
+    </script>
+</body>
+</html>
