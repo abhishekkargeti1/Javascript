@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API in JavaScript</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <h1>Hello World</h1>
+    <div id="img"></div>
+    <script>
+      const xhr = new XMLHttpRequest();
+      const requestUrl = "https://api.github.com/users/abhishekkargeti1";
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            console.log(this.responseText);
+            const response = this.responseText
+            console.log(typeof response);
+            const Jsondata = JSON.parse(this.responseText)
+            console.log(typeof Jsondata);
+            
+            const userImage =  Jsondata.avatar_url;
+            const userName = Jsondata.login;
+            console.log(userImage);
+
+            const img = document.createElement('img')
+            const h1 = document.createElement('h1')
+            img.src = userImage
+            h1.innerHTML= "User Name is -   "+userName
+            const div = document.getElementById("img")
+            div.appendChild(img)
+            div.appendChild(h1)
+            
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
