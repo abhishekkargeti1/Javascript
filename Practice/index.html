@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" placeholder="Enter Your City " id ="userInput">
+    <button id="btn">Submit</button>
+    <div id="container">
+
+
+    </div>
+
+    <script>
+
+        const submitbtn  = document.getElementById("btn");
+        submitbtn.addEventListener('click',(event)=>{
+                const userValue = document.getElementById("userInput").value
+                getData(userValue).then( (data)=>{
+            console.log(data);
+            const h1 = document.createElement('h1')
+            const img = document.createElement('img')
+            h1.innerHTML = "Location is "+data.location.name+"  Current Tempearature "+ data.current.temp_c;
+            img.src= data.current.condition.icon
+            const div = document.getElementById("container")
+            div.appendChild(h1)
+            div.appendChild(img)
+        })
+        })
+
+
+        async function getData(userValue){
+            try {
+                const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=966dfd6ec0334ed38c9154806242010&q=${userValue}`)
+                console.log(typeof response)
+                const data =  response.json()
+                console.log(typeof data)
+                return data
+            } catch (error) {
+                console.log(error);
+            }
+            
+        }
+
+    </script>
+</body>
+</html>
